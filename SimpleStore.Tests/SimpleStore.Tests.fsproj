@@ -3,33 +3,26 @@
   <PropertyGroup>
     <TargetFramework>net9.0-windows</TargetFramework>
     <IsPackable>false</IsPackable>
-
-    <!-- هذه الخاصية تجبر نسخ كل تبعيات الحزم إلى مجلد الخرج -->
     <CopyLocalLockFileAssemblies>true</CopyLocalLockFileAssemblies>
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="FsUnit.Xunit" Version="4.1.0" />
     <PackageReference Include="xunit" Version="2.4.2" />
     <PackageReference Include="xunit.runner.visualstudio" Version="2.4.5">
       <PrivateAssets>all</PrivateAssets>
-      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
     </PackageReference>
-
-    <!-- مهم: Microsoft.NET.Test.Sdk مطلوب لتشغيل اختبار dotnet test -->
     <PackageReference Include="Microsoft.NET.Test.Sdk" Version="17.11.0" />
-
-    <!-- Newtonsoft (تأكدنا من وجودها) -->
-    <PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
+    <!-- FsUnit اختياري، إن كنت تستخدمه -->
+    <PackageReference Include="FsUnit.Xunit" Version="4.1.0" />
   </ItemGroup>
 
   <ItemGroup>
-    <!-- مرجع لمشروع التطبيق الرئيسي — تأكد من اسم الملف والمسار -->
+    <!-- مرجع لمشروع التطبيق: المسار يجب أن يكون صحيحاً -->
     <ProjectReference Include="..\Simple Store.fsproj" />
   </ItemGroup>
 
   <ItemGroup>
-    <!-- أسماء ملفات الاختبارات الفعلية -->
+    <!-- ملف الاختبارات -->
     <Compile Include="Tests.fs" />
   </ItemGroup>
 
